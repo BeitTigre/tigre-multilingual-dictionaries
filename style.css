@@ -1,0 +1,76 @@
+
+:root{
+  --paper:#f6efe0; --ink:#241c14; --ink-soft:#6f6150; --line:#dccbab;
+  --accent:#a8431f; --accent-2:#1f5e54; --card:#fffdf8; --tig:#1d3a52; --mark:#ffe08a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--paper);
+  background-image:radial-gradient(900px 380px at 12% -6%, #fffaf0 0, rgba(255,250,240,0) 60%),
+                   radial-gradient(700px 300px at 105% -4%, #ecd9b6 0, rgba(236,217,182,0) 55%);
+  color:var(--ink); font-family:"Newsreader","Iowan Old Style",Georgia,serif;
+  font-size:18px; line-height:1.55; -webkit-font-smoothing:antialiased;}
+.wrap{max-width:1000px; margin:0 auto; padding:0 24px}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{color:var(--accent-2)}
+header.site{border-bottom:2px solid var(--ink); padding:30px 0 20px; position:relative}
+.kicker{font:600 13px/1 "Newsreader",serif; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 12px}
+.kicker .ge{font-family:"Noto Serif Ethiopic","Noto Sans Ethiopic",serif}
+.kicker a{color:var(--ink-soft)}
+h1.title{font-family:"Fraunces","Newsreader",serif; font-weight:600;
+  font-size:clamp(34px,6vw,58px); line-height:1.0; margin:0 0 8px; letter-spacing:-.015em}
+h1.title .ge{font-family:"Noto Serif Ethiopic","Noto Sans Ethiopic",serif}
+.sub{color:var(--ink-soft); font-size:18px; margin:8px 0 0; max-width:66ch}
+.search-shell{margin:28px 0 6px; position:relative}
+#q{width:100%; font-family:inherit; font-size:21px; color:var(--ink); background:var(--card);
+  border:1.5px solid var(--ink); border-radius:12px; padding:16px 20px 16px 52px; outline:none}
+#q:focus{border-color:var(--accent); box-shadow:0 0 0 4px rgba(168,67,31,.12)}
+.search-shell::before{content:"\1F50D"; position:absolute; left:18px; top:50%;
+  transform:translateY(-50%); font-size:19px; opacity:.5}
+.metaline{display:flex; flex-wrap:wrap; gap:6px 26px; color:var(--ink-soft);
+  font-size:15px; margin:13px 3px 6px; align-items:baseline}
+.metaline span{white-space:nowrap}
+.count{color:var(--ink-soft); font-size:15px; margin:10px 3px 0}
+h2.sec{font-family:"Fraunces",serif; font-weight:600; font-size:24px; margin:34px 0 4px;
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+h2.sec small{font-family:"Newsreader",serif; font-weight:400; font-size:15px; color:var(--ink-soft)}
+table.dict{width:100%; border-collapse:collapse; margin:12px 0 8px}
+table.dict th{text-align:left; font:600 12px/1 "Newsreader",serif; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-soft); border-bottom:2px solid var(--ink); padding:0 14px 9px}
+table.dict td{border-bottom:1px solid var(--line); padding:12px 14px; vertical-align:top}
+table.dict tr:target td{background:#fff1ce}
+table.dict tr:hover td{background:#fffaef}
+.tig{font-family:"Noto Serif Ethiopic","Noto Sans Ethiopic",serif; font-size:22px; color:var(--tig); width:40%}
+.tig a{color:var(--tig); text-decoration:none}
+.tig a:hover{color:var(--accent)}
+.eng{font-size:18px}
+.eng .v{color:var(--ink)}
+.eng .sep{color:var(--line); padding:0 7px}
+.more{color:var(--ink-soft); font-style:italic; font-size:15px}
+mark{background:var(--mark); border-radius:3px; padding:0 1px}
+[lang="ar"]{font-family:"Noto Naskh Arabic","Amiri",serif; font-size:20px}
+.eng[dir="rtl"]{text-align:right; direction:rtl}
+[lang="ti"]{font-family:"Noto Serif Ethiopic","Noto Sans Ethiopic",serif; font-size:21px}
+.pagelinks{display:grid; grid-template-columns:repeat(auto-fill,minmax(70px,1fr)); gap:7px}
+.pagelinks a{text-align:center; background:var(--card); border:1px solid var(--line);
+  border-radius:7px; padding:9px 4px; font-size:14px; text-decoration:none; color:var(--ink)}
+.pagelinks a:hover{border-color:var(--accent); color:var(--accent)}
+nav.pager{display:flex; align-items:center; justify-content:space-between; gap:14px;
+  margin:24px 0; padding:16px 0; border-top:1px solid var(--line); font-size:16px}
+nav.pager .mid{color:var(--ink-soft)} nav.pager a{font-weight:600}
+nav.pager .disabled{color:var(--line); pointer-events:none}
+.langgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; margin:26px 0}
+.langcard{display:block; background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:20px 22px; text-decoration:none; color:var(--ink); transition:border-color .15s}
+.langcard:hover{border-color:var(--accent)}
+.langcard .nm{font-family:"Fraunces",serif; font-size:23px; color:var(--ink)}
+.langcard .nat{font-size:17px; color:var(--ink-soft); margin-top:2px}
+.langcard .nat.ar{font-family:"Noto Naskh Arabic",serif}
+.langcard .nat.ti{font-family:"Noto Serif Ethiopic",serif}
+.langcard .ct{font-size:14px; color:var(--accent); margin-top:10px; letter-spacing:.04em}
+footer.site{border-top:2px solid var(--ink); margin-top:42px; padding:22px 0 60px; color:var(--ink-soft); font-size:15px}
+footer.site a{color:var(--accent)} footer.site strong{color:var(--ink)}
+footer.site .ge{font-family:"Noto Serif Ethiopic",serif}
+.hide{display:none}
+@media(max-width:640px){ body{font-size:17px} .tig{font-size:20px; width:46%} table.dict td{padding:11px 9px} }
