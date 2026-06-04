@@ -1,1 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<title>Tigre–Swedish Dictionary (ISO sv)</title>
+<meta name="description" content="Searchable Tigre–Swedish dictionary with 14,670 entries from the open BeitTigreAI parallel corpus.">
+<meta property="og:title" content="Tigre–Swedish Dictionary (ISO sv)">
+<meta property="og:description" content="Searchable Tigre–Swedish dictionary with 14,670 entries from the open BeitTigreAI parallel corpus.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site"><div class="wrap"><p class="kicker"><a href="../index.html">Tigre Dictionaries</a> &middot; <span class="ge">ትግረ</span> &rarr; Swedish</p><h1 class="title">Tigre&ndash;Swedish <span class="ge">ትግረ</span> Dictionary</h1><p class="sub">A searchable parallel phrasebook from Tigre (a Semitic language of Eritrea and eastern Sudan, in the Ge&rsquo;ez script) into Swedish.</p></div></header><main class="wrap"><div class="search-shell"><input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search Tigre (ትግረ) or Swedish…" aria-label="Search"></div><p class="metaline"><span id="count">14,670 entries — type to search.</span><span>14,670 Tigre entries</span><span>14,670 entries indexed</span><span>30 browsable pages</span></p><table class="dict hide" id="results"><thead><tr><th>Tigre (ትግረ)</th><th>Swedish (Svenska)</th></tr></thead><tbody id="rbody"></tbody></table><div id="default"><div class="browse"><h2 class="sec">Browse everything <small>every entry on a plain, link-friendly page</small></h2><div class="pagelinks"><a href="page-0001.html">1</a><a href="page-0002.html">2</a><a href="page-0003.html">3</a><a href="page-0004.html">4</a><a href="page-0005.html">5</a><a href="page-0006.html">6</a><a href="page-0007.html">7</a><a href="page-0008.html">8</a><a href="page-0009.html">9</a><a href="page-0010.html">10</a><a href="page-0011.html">11</a><a href="page-0012.html">12</a><a href="page-0013.html">13</a><a href="page-0014.html">14</a><a href="page-0015.html">15</a><a href="page-0016.html">16</a><a href="page-0017.html">17</a><a href="page-0018.html">18</a><a href="page-0019.html">19</a><a href="page-0020.html">20</a><a href="page-0021.html">21</a><a href="page-0022.html">22</a><a href="page-0023.html">23</a><a href="page-0024.html">24</a><a href="page-0025.html">25</a><a href="page-0026.html">26</a><a href="page-0027.html">27</a><a href="page-0028.html">28</a><a href="page-0029.html">29</a><a href="page-0030.html">30</a></div></div></div></main><footer class="site"><div class="wrap"><p><a href="../index.html">&larr; All Tigre dictionaries</a></p><p><strong>Source.</strong> Built from the open <a href="https://huggingface.co/datasets/BeitTigreAI/tigre-data-parallel-multilingual">BeitTigreAI/tigre-data-parallel-multilingual</a> dataset. Entries are sentence- and phrase-level parallel pairs grouped by the unique Tigre text; glosses are ordered to show the clearest translation first.</p><p>Generated 2026-06-04 &middot; data under its original dataset license &mdash; please retain attribution to BeitTigreAI.</p></div></footer>
+<script>
+const PER=500, ISO=" sv ".trim(), RTL=false;
+let DATA=null;
+const q=document.getElementById('q'),rb=document.getElementById('rbody'),cnt=document.getElementById('count'),
+      results=document.getElementById('results'),dflt=document.getElementById('default');
+function pad(n){return String(n).padStart(4,'0');}
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hi(s,t){if(!t)return esc(s);const i=s.toLowerCase().indexOf(t);if(i<0)return esc(s);
+  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+t.length))+'</mark>'+esc(s.slice(i+t.length));}
+function row(t,e,gi,term){const href='page-'+pad(Math.floor(gi/PER)+1)+'.html#entry-'+gi;
+  const d=RTL?' dir="rtl"':'';
+  return '<tr><td class="tig" lang="tig"><a href="'+href+'">'+hi(t,term)+'</a></td>'+
+         '<td class="eng" lang="'+ISO+'"'+d+'>'+hi(e,term)+'</td></tr>';}
+function show(s){results.classList.toggle('hide',!s);dflt.classList.toggle('hide',s);}
+function run(){const term=q.value.trim().toLowerCase();
+  if(!term){show(false);cnt.textContent=DATA?DATA.length.toLocaleString()+' entries \u2014 type to search.':'Browse the pages below.';return;}
+  if(!DATA){cnt.textContent='Search index still loading\u2026 (or open on a web server).';return;}
+  show(true);const out=[];let nn=0;
+  for(const r of DATA){if(r[0].toLowerCase().includes(term)||r[1].toLowerCase().includes(term)){
+    nn++;if(out.length<300)out.push(row(r[0],r[1],r[2],term));}}
+  cnt.textContent=nn.toLocaleString()+' match'+(nn===1?'':'es')+(nn>300?' (showing first 300)':'');
+  rb.innerHTML=out.join('')||'<tr><td colspan="2">No matches.</td></tr>';}
+q.addEventListener('input',run);
+fetch('dict.json').then(r=>r.json()).then(d=>{DATA=d;if(!q.value.trim())
+  cnt.textContent=d.length.toLocaleString()+' entries \u2014 type to search.';else run();})
+ .catch(()=>{cnt.textContent='Live search needs a web server; browse the pages below.';});
+</script>
 
+</body>
+</html>
