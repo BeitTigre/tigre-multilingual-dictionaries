@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://USERNAME.github.io/REPO/sitemap.xml
+Sitemap: https://beittigre.github.io/tigre-multilingual-dictionaries/sitemap.xml
